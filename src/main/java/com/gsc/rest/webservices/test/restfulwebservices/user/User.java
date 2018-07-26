@@ -8,11 +8,22 @@ import javax.validation.constraints.Size;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+/*@ApiModel:
+ * Provides additional information about Swagger models.
+ * Use @ApiModel to change the name of the model and add a description to it.
+ *
+ * To support polymorphism and inheritance, we use the discriminator and the subTypes fields. Both must be used for the Swagger output to be valid.
+ */
 @ApiModel(description="All details about the user. ")
 public class User {
     private Integer id;
 
     @Size(min=2, message="Name should have at least 2 characters")
+/*@ApiModelProperty:
+ *   Adds and manipulates data of a model property.
+ *   The @ApiModelProperty allows controlling Swagger-specific definitions such as allowed values, and additional notes.
+ *   It also offers additional filtering properties in case you want to hide the property in certain scenarios.
+ */
 	@ApiModelProperty(notes="Name should have atleast 2 characters")
     private String name;
 
